@@ -1,0 +1,19 @@
+<h1>Edit this site:</h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for @application, :url => registered_application_path(@application) do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', placeholder: "Enter site name" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :url %>
+        <%= f.text_field :url, class: 'form-control', placeholder: "Enter site URL" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Save", class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>

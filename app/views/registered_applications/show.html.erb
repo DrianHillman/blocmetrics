@@ -1,2 +1,8 @@
-<h2><%= @application.name %></h4>
-<small><%= @application.url%></small>
+<div class="col-md-12">
+  <h2><%= @application.name %></h4>
+  <small><%= @application.url%></small>
+</div>
+<div class="col-md-12">
+  <%= link_to "Delete", registered_application_path(@application), method: :delete, class: 'btn btn-danger pull-right', data: {confirm: 'Are you sure you want to delete this site?'} %>
+  <%= link_to "Edit", edit_registered_application_path(@application), class: 'btn btn-success pull-right' %>
+</div>

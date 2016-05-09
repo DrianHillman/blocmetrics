@@ -71,11 +71,60 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
       end
     end
 
-    # describe "GET edit" do
-    #   it "returns http success" do
-    #     get :edit
-    #     expect(response).to have_http_status(:success)
-    #   end
-    # end
+    describe "GET edit" do
+      it "returns http success" do
+        get :edit, {id: my_app.id}
+        expect(response).to have_http_status(:success)
+      end
+
+      it "renders the #edit view" do
+        get :edit, {id: my_app.id}
+        expect(response).to render_template :edit
+      end
+
+      it "assigns application to be updated to @application" do
+        get :edit, {id: my_app.id}
+        app_instance = assigns(:application)
+
+        expect(app_instance.id).to eq my_app.id
+        expect(app_instance.name).to eq my_app.name
+        expect(app_instance.url).to eq my_app.url
+      end
+    end
+
+    describe "PUT update" do
+      it "updates application with expected attributes" do
+        new_name = RandomData.random_name
+        new_url = RandomData.random_url
+
+        put :update, id: my_app.id, application: {name: new_name, url: new_url}
+
+        updated_application = assigns(:application)
+        expect(updated_application.id).to eq my_app.id
+        expect(updated_application.name).to eq new_name
+        expect(updated_application.url).to eq new_url
+      end
+
+      it "redirects to the updated application" do
+        new_name = RandomData.random_name
+        new_url = RandomData.random_url
+
+        put :update, id: my_app.id, application: {name: new_name, url: new_url}
+        expect(response).to redirect_to registered_application_path(my_app.id)
+      end
+    end
+
+    describe "DELETE destroy" do
+      it "deletes the application" do
+        delete :destroy, {id: my_app.id}
+        count = Application.where({id: my_app.id}).size
+        expect(count).to eq 0
+      end
+
+      it "redirects to posts index" do
+        delete :destroy, {id: my_app.id}
+        expect(response).to redirect_to root_path
+      end
+    end
   end
 end
