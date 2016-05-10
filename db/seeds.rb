@@ -17,7 +17,7 @@ users = User.all
 
 # Create Applications
 
-100.times do
+200.times do
   Application.create!(
     user: users.sample,
     name: Faker::App.name,
@@ -29,7 +29,7 @@ applications = Application.all
 
 # Create Events
 
-250.times do
+350.times do
   Event.create!(
     application: applications.sample,
     name: Faker::Hipster.sentence(2)
