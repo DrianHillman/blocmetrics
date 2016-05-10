@@ -22,12 +22,12 @@ gem 'bootstrap-sass'
 gem 'figaro'
 gem 'pry'
 gem 'devise'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug'
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda'
-  gem 'faker'
   gem 'factory_girl_rails'
 end
