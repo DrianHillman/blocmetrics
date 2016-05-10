@@ -7,12 +7,12 @@
   </div>
 <% end %>
 
-<h1>My Sites</h1>
+<h1>My Registered Sites</h1>
  <% @user.applications.each do |app| %>
    <div class="media">
      <div class="media-body">
        <h4 class="media-heading">
-         <%= link_to app.name, registered_application_path(app) %>
+         <%= link_to app.name, registered_application_path(app) %> <small><%= app.url %></small>
        </h4>
      </div>
    </div>

@@ -4,5 +4,24 @@
 </div>
 <div class="col-md-12">
   <%= link_to "Delete", registered_application_path(@application), method: :delete, class: 'btn btn-danger pull-right', data: {confirm: 'Are you sure you want to delete this site?'} %>
-  <%= link_to "Edit", edit_registered_application_path(@application), class: 'btn btn-success pull-right' %>
+  <%= link_to "Edit Application", edit_registered_application_path(@application), class: 'btn btn-success pull-right' %>
+</div>
+
+<h3>Tracked Events:</h3>
+
+<div class="col-md-11 tracked-apps">
+  <% @events.each do |event| %>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">
+           <%= event[0] %> <small>Event details: <%= event[1] %></small>
+        </h4>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="col-md-12">
+  <br/>
+  <h4>Total Number of Events: <%= @events.count %></h5>
 </div>
