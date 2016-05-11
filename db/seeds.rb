@@ -1,5 +1,5 @@
 # Create Users
-28.times do
+5.times do
   User.create!(
     email:    Faker::Internet.email,
     password: Faker::Internet.password(16, 32, true, true)
@@ -17,7 +17,7 @@ users = User.all
 
 # Create Applications
 
-200.times do
+60.times do
   Application.create!(
     user: users.sample,
     name: Faker::App.name,
@@ -29,7 +29,7 @@ applications = Application.all
 
 # Create Events
 
-350.times do
+250.times do
   Event.create!(
     application: applications.sample,
     name: Faker::Hipster.sentence(2)
