@@ -12,7 +12,7 @@ var blocmetrics = {};
     var event = { name: eventName };
     var request = new XMLHttpRequest();
     
-    request.open("POST", "https://bloc-projects-drianhillman.c9users.io/api/v1/events", true);
+    request.open("POST", "https://blocmetrics-by-drianhillman.herokuapp.com/api/v1/events", true);
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(JSON.stringify(event));
   };
