@@ -23,6 +23,8 @@ gem 'figaro'
 gem 'pry'
 gem 'devise'
 gem 'faker'
+gem 'chartkick'
+
 
 group :development, :test do
   gem 'byebug'

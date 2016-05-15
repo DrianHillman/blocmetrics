@@ -10,15 +10,12 @@
 <h3>Tracked Events:</h3>
 
 <div class="col-md-11 tracked-apps">
-  <% @events.each do |event| %>
-    <div class="media">
-      <div class="media-body">
-        <h4 class="media-heading">
-           <%= event[0] %> | <em>event occurances</em>: <%= event[1].count %> <small>Event Log: <%= event[1] %></small> 
-        </h4>
-      </div>
+  <div class="media">
+    <div class="media-body">
+      <%= pie_chart @application.events.group(:name).count %>
+      <%= line_chart @application.events.group_by_day(:created_at).count %>
     </div>
-  <% end %>
+  </div>
 </div>
 
 <div class="col-md-12">
