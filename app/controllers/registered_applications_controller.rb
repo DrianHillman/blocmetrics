@@ -18,7 +18,7 @@ class RegisteredApplicationsController < ApplicationController
     @application.url = params[:application][:url]
 
     if @application.save
-      flash[:notice] = "Your site was saved successfully!"
+      flash[:notice] = "Success! Now listening for events from " + @application.url
       redirect_to registered_application_path(@application.id)
     else
       flash.now[:alert] = "There was an error saving the new site. Please try again."
@@ -36,7 +36,7 @@ class RegisteredApplicationsController < ApplicationController
     @application.url = params[:application][:url]
 
     if @application.save
-      flash[:notice] = "Your site was updated successfully!"
+      flash[:notice] = "\""+@application.name+"\" saved successfully!"
       redirect_to registered_application_path(@application.id)
     else
       flash.now[:alert] = "There was an error saving the new site. Please try again."

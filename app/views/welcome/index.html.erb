@@ -1,19 +1,21 @@
-<h1>Blocmetrics</h1>
-<p>An API Tracking Service and Reporting Tool</p>
+<div class="page-header">
+  <h1>Your Tracked Sites:</h1>
+</div>
+
+<div class="col-md-10 sites-list">
+    <% @user.applications.each do |app| %>
+    <div class="media">
+      <div class="media-body">
+        <h3 class="media-heading">
+          <%= link_to app.name, registered_application_path(app) %> <small><%= app.url %></small>
+        </h3>
+      </div>
+    </div>
+    <% end %>
+</div>
 
 <% if current_user %>
-  <div class="col-md-12">
-    <%= link_to "+Add Site", new_registered_application_path(@application), class: 'btn btn-success pull-right' %>
+  <div class="col-md-2">
+    <%= link_to "+Add New Site", new_registered_application_path(@application), class: 'btn btn-success pull-right' %>
   </div>
 <% end %>
-
-<h1>My Registered Sites</h1>
- <% @user.applications.each do |app| %>
-   <div class="media">
-     <div class="media-body">
-       <h4 class="media-heading">
-         <%= link_to app.name, registered_application_path(app) %> <small><%= app.url %></small>
-       </h4>
-     </div>
-   </div>
- <% end %>

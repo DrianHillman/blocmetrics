@@ -17,3 +17,9 @@
 //= require_tree .
 //= require highcharts
 //= require chartkick
+
+$(document).ready(function() {
+  // get current URL path and assign 'active' class to navigation
+  var pathname = window.location.pathname;
+  $('.nav > li > a[href="'+pathname+'"]').parent().addClass('active');
+});
