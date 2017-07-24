@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blocmetrics | API Analytics</title>
+    <title>Metrics | API-Driven Analytics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400italic', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= favicon_link_tag 'images/favicon.ico' %>
     <%= csrf_meta_tags %>
@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <%= link_to image_tag("logo-blocmetrics.png") + "Blocmetrics", root_path, class: "navbar-brand" %>
+            <%= link_to image_tag("logo-blocmetrics.png") + "Metrics", root_path, class: "navbar-brand" %>
           </div>
       
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -33,14 +33,15 @@
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
                 <p class="navbar-text">Welcome, 
-                <%= link_to current_user.email, edit_user_registration_path, :class => 'navbar-link userHighlight' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                  <%= link_to current_user.email, edit_user_registration_path, :class => 'navbar-link userHighlight' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
                 </p>
               <% else %>
-                <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
-                <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
+                <p class="navbar-text">
+                  <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> &bull;
+                  <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
+                </p>
               <% end %>
             </ul>
-            
           </div>
         </div>
       </nav>
