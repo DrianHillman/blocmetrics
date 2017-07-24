@@ -1,0 +1,50 @@
+<br>
+
+<div class="col-md-8">
+  <div class="jumbotron">
+    <h1>Metrics</h1>
+    <p class="lead">An API-driven Anayltics Tool</p>
+    <p>
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
+    </p>
+  </div>
+  
+  <blockquote>
+    <p class="help-block">To Demo the Application without registering, you may sign in with:</p>
+    <p style="margin-left: 1em;"><strong>demo@blocmetrics.com<br>blocmetrics</strong></p>
+  </blockquote> 
+</div>
+
+<div class="col-md-4">
+  <h3>Log in:</h3>
+  
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+    </div>
+  
+    <div class="field form-group">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+    </div>
+  
+    <% if devise_mapping.rememberable? -%>
+      <div class="form-group text-left">
+        <%= f.check_box :remember_me %> 
+        <%= f.label :remember_me %>
+      </div>
+    <% end -%>
+  
+    <div class="container-fluid">
+      <%= f.submit "Log in", class: "btn btn-default col-md-12" %>
+    </div>
+    
+    <div class="container-fluid">
+      <small><br>
+        <%= render "devise/shared/links" %>
+      </small>
+    </div>
+    
+  <% end %>
+</div>

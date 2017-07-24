@@ -1,19 +1,19 @@
-<div class="page-header">
-  <h1>Add Site:</h1>
+<div class="page-header col-md-12">
+  <h1>Track a New Site:</h1>
 </div>
 
 <div class="col-md-10">
   <%= form_for @application, :url => registered_applications_path(@application) do |f| %>
     <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control', placeholder: "Enter a site title" %>
+      <%= f.label :name, id: "app-name" %>
+      <%= f.text_field :name, class: "form-control", placeholder: "Enter a site title" %>
     </div>
     <div class="form-group">
       <%= f.label :url %>
-      <%= f.text_field :url, class: 'form-control', placeholder: "Enter the site URL" %>
+      <%= f.text_field :url, class: "form-control", placeholder: "Enter the site URL" %>
     </div>
     <div class="form-group">
-      <%= f.submit "Save New Site", class: 'btn btn-success' %>
+      <%= f.submit "Save New Site", class: "btn btn-success" %>
     </div>
   <% end %>
 </div>
