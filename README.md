@@ -27,4 +27,4 @@
 <br>
 
 > ### Credits:
-> Blocmetrics is hand-crafted by Drian Hillman through the Software Engineering Track at [BLOC](https://bloc.io).
+> Blocmetrics is handcrafted by Drian Hillman through the Software Engineering Track at [BLOC](https://bloc.io).
